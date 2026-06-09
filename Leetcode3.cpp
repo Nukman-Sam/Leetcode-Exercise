@@ -3,7 +3,6 @@
                              LeetCode Exercise 3
 
 *******************************************************************************/
-
 #include <iostream>
 #include <string>
 #include <stdio.h>
@@ -14,9 +13,9 @@ using namespace std;
 int main() {
     // variables
     int same_number = 0 ;
-    int string_count = 1 ;
+    int string_count = 0 ;
     int max_count = 1;
-    int repeat_num = 0;
+    int num_mark = 0;
     
     
     //Word or names variables
@@ -27,38 +26,28 @@ int main() {
     getline(cin,name_input);
     
     // Create a vector called cars that will store strings
-    vector<char> cars(name_input.begin(), name_input.end());
+    vector<char> name(name_input.begin(), name_input.end());
     
-
-	// Leetcode part
-    same_number = cars[0];
-    for(int count = 0; count < cars.size(); count++)
+    
+    for(int count = 0; count < name.size(); count++)
     {
-        cout << cars[count];
+        cout << name[count];
         
-        
-        if (cars[count] == same_number)
+        if (name[count] == name[count-1] || name[count] == name[count-2] || name[count] == name[count-3])
         {
-            cout << " reset" << endl;
             string_count = 1;
-            same_number = cars[count];
+            num_mark = count;
+            cout << "The vector location that have same alphabet " << num_mark << endl;
             continue;
         }
-        else 
-        {   
-            
-            if(cars[count] == cars[count-1] || cars[count] == cars[count-2] || cars[count] == cars[count-3] || cars[count] == cars[count-4] || cars[count] == cars[count-5])
-                {
-                 cout << " Same" << endl;
-                 string_count--;
-                 continue;   
-                }
-                
+        else
+        {
             string_count++;
+            
             if (string_count > max_count)
                 max_count = string_count;
         }
-        
+
         cout << endl;
     }
     
