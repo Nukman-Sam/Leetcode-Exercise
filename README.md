@@ -1,3 +1,3 @@
 This is collection of leetcode exercise using C++
 
-LeetCode Exercise 3 (incomplete)
+LeetCode Exercise 3 (Complete)
